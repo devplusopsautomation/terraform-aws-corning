@@ -1,11 +1,9 @@
-#Output file used to get output from Created resources
-
-output "ec2_Ips_Prod" {
-  
-  value = aws_instance.ec2-terraform-prod[*].private_ip
+output "bucket_id" {
+  description = "The name of the S3 bucket"
+  value       = aws_s3_bucket.this.id
 }
 
-
-output "ec2_Ips_NonProd" {
-  value = "Private Ip of Non Prod EC2 is : ${aws_instance.ec2-terraform-nonprod.private_ip} and Public IP is : ${aws_instance.ec2-terraform-nonprod.public_ip}"
+output "bucket_arn" {
+  description = "The ARN of the S3 bucket"
+  value       = aws_s3_bucket.this.arn
 }
