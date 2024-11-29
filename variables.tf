@@ -1,35 +1,22 @@
-variable "ami_prod" {
-  type = string
+variable "bucket_name" {
+  description = "The name of the S3 bucket"
+  type        = string
 }
 
-variable "ami_nonprod" {
-  type = string
+variable "acl" {
+  description = "The ACL to apply to the bucket"
+  type        = string
+  default     = "private"
 }
 
-variable "instance_type" {
-  type = string
+variable "versioning" {
+  description = "Enable versioning for the bucket"
+  type        = bool
+  default     = false
 }
 
-variable "subnet_cidrs" {
-  type = list(string)
-}
-variable "tag_prod" {
-  type = map(string)
-  /* default = {
-    Name = "Default_Name_prod"
-    Created_By = "Default_IAC"
-  } 
-  Note : map type of tag also works without passing default value , but type is required => type = map(string)
-  */
-}
-
-
-variable "tag_nonprod" {
-  type = map(string)
-  /* default = {
-    Name = "Default_Name_nonprod"
-    Created_By = "Default_IAC"
-  } 
-  Note : map type of tag also works without passing default value , but type is required => type = map(string)
-  */
+variable "tags" {
+  description = "A map of tags to assign to the bucket"
+  type        = map(string)
+  default     = {}
 }
