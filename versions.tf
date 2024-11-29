@@ -7,4 +7,12 @@ terraform {
       version = ">= 4.0"
     }
   }
+
+   backend "remote" {
+    organization = "CapgeminiCorning"
+
+    workspaces {
+      name = "Terraform"
+    }
+  }
 }
